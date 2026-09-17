@@ -26,19 +26,21 @@ Notes:
 
 ### 0.2 Project HQ & Roadmap
 
-Status: 🟡 IN PROGRESS
+Status: ✅ PASS
 
-Goals:
+Completed:
 
-- Repository becomes the canonical project source of truth.
-- Track roadmap and checkpoints in Git.
-- Track learning outcomes.
-- Record important architecture decisions.
-- Prepare the project for reliable continuation across ChatGPT conversations.
+- Repository is the canonical technical source of truth.
+- GitHub remote configured and main branch pushed.
+- Roadmap and checkpoints tracked in Git.
+- Learning outcomes tracked in Git.
+- Architecture decisions tracked in Git.
+- Notion Career & Engineering HQ created.
+- Notion roadmap, projects, and skills databases created.
 
 ### 0.3 Docker Development Environment
 
-Status: ⬜ NOT STARTED
+Status: 🟡 IN PROGRESS
 
 Planned initial environment:
 
