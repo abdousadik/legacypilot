@@ -49,3 +49,27 @@ Current understanding:
 
 - Docker will provide the canonical runtime for LegacyPilot.
 - A developer should eventually be able to clone the repository and start the application without manually reproducing the author's PHP configuration.
+
+## Docker Development Environment
+
+Applied in LegacyPilot:
+
+- A Dockerfile defines the application's PHP runtime.
+- Docker Compose defines how the development service is run.
+- The host PHP installation is not the application runtime.
+- Source code is bind-mounted from WSL into `/app`.
+- Container UID/GID matches the WSL user to avoid root-owned project files.
+- Composer is copied from its official Docker image using a multi-stage build.
+- Linux packages and PHP extensions are different layers of dependencies:
+- `libzip-dev` provides the system library/build dependency.
+- `docker-php-ext-install zip` builds the PHP extension.
+- `.gitignore` controls Git tracking.
+- `.dockerignore` controls Docker build context.
+- `docker compose run --rm app` is appropriate for the current CLI-first application.
+- Long-running services will be introduced only when LegacyPilot actually needs them.
+
+Verified runtime:
+
+- PHP 8.5.10
+- Composer 2.10.3
+- Symfony 8.1.7

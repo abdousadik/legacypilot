@@ -40,17 +40,28 @@ Completed:
 
 ### 0.3 Docker Development Environment
 
-Status: 🟡 IN PROGRESS
+Status: ✅ PASS
 
-Planned initial environment:
+Verified:
 
-- PHP 8.5
-- Composer
-- Symfony 8
-- Docker Compose
+- Docker is the canonical LegacyPilot application runtime.
+- PHP 8.5.10 runs inside the project container.
+- Composer 2.10.3 runs inside the project container.
+- Symfony 8.1.7 boots successfully inside Docker.
+- Docker Compose configuration validates successfully.
+- Container runs as a non-root user matching the WSL UID/GID.
+- Git, unzip and the PHP zip extension are available.
+- Symfony dependency injection container lints successfully.
+- `composer validate --strict` passes.
+- `vendor/` and runtime files are excluded from Git.
+- Docker build context excludes unnecessary generated files.
 
-No database initially.
+Notes:
+
+- The application is CLI-first, so development commands currently use `docker compose run --rm app ...`.
+- No database, Redis, web server or other infrastructure has been added yet.
+- Symfony Flex 2.11.0 emits a non-blocking PHP 8.5 deprecation in some Composer invocations.
 
 ### 0.4 Modern PHP & Symfony Foundation
 
-Status: ⬜ NOT STARTED
+Status: 🟡 IN PROGRESS
