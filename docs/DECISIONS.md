@@ -53,3 +53,38 @@ PostgreSQL, Redis, Python, AI services, queues, Kubernetes, and cloud infrastruc
 Reason:
 
 Avoid unnecessary complexity and ensure each technology is actually understood.
+
+## ADR-004 — Start LegacyPilot as a CLI-First Docker Application
+
+Date: 2026-09-18
+
+### Decision
+
+LegacyPilot initially runs as a CLI-first Symfony application using a single PHP container.
+
+Development commands use:
+
+`docker compose run --rm app <command>`
+
+No nginx, PHP-FPM, database, Redis, queue broker or other persistent service is included yet.
+
+### Rationale
+
+LegacyPilot does not currently require an HTTP application or persistent infrastructure.
+
+Adding services before there is a concrete product requirement would increase complexity without improving the application.
+
+The architecture will evolve when actual features require:
+
+- persistent storage
+- HTTP APIs
+- background workers
+- queues
+- caching
+- other long-running processes
+
+### Consequences
+
+The current Docker environment remains small and understandable.
+
+Production-style web infrastructure will be introduced later as a deliberate learning and architecture checkpoint rather than copied prematurely.
