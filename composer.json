@@ -17,6 +17,7 @@
         "symfony/yaml": "8.1.*"
     },
     "require-dev": {
+        "phpunit/phpunit": "^13"
     },
     "config": {
         "allow-plugins": {

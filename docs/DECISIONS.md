@@ -88,3 +88,23 @@ The architecture will evolve when actual features require:
 The current Docker environment remains small and understandable.
 
 Production-style web infrastructure will be introduced later as a deliberate learning and architecture checkpoint rather than copied prematurely.
+
+## ADR-005 — Organize LegacyPilot Around Capabilities
+
+### Decision
+
+Initial application code is organized around the `Inspection` capability instead of generic folders such as `Service`, `Manager`, or `Utils`.
+
+Examples:
+
+- `App\Inspection\ProjectPath`
+- `App\Inspection\RepositoryInspector`
+- `App\Inspection\ProjectInspection`
+
+Symfony-specific delivery code lives separately under `App\Command`.
+
+### Rationale
+
+Feature/capability-oriented organization keeps related domain behavior together and avoids generic architectural buckets that tend to accumulate unrelated code.
+
+The project remains intentionally small and avoids introducing interfaces or abstraction layers before multiple implementations or concrete requirements justify them.
