@@ -64,4 +64,37 @@ Notes:
 
 ### 0.4 Modern PHP & Symfony Foundation
 
-Status: 🟡 IN PROGRESS
+Status: ✅ PASS
+
+Implemented:
+
+- Symfony 8.1 application foundation
+- PHPUnit test environment
+- Test-driven development workflow
+- `ProjectPath` value object with directory validation
+- `RepositoryInspector`
+- Composer project detection
+- Symfony project detection
+- Symfony version constraint detection
+- `ProjectInspection` result model
+- `legacypilot:inspect` Symfony Console command
+- Dependency injection and autowiring
+- Command integration test
+- Positive and negative repository inspection tests
+
+Verified:
+
+- Full PHPUnit suite passes
+- Symfony DI container lints successfully
+- Composer strict validation passes
+- `legacypilot:inspect .` successfully inspects LegacyPilot itself
+- Git diff validation passes
+
+Architecture:
+
+`InspectCommand`
+→ `RepositoryInspector`
+→ `ProjectInspection`
+→ `ProjectPath`
+
+The CLI layer handles input/output only. Repository analysis remains outside the command.

@@ -73,3 +73,29 @@ Verified runtime:
 - PHP 8.5.10
 - Composer 2.10.3
 - Symfony 8.1.7
+
+
+## Modern PHP & Symfony Foundation
+
+Applied in LegacyPilot:
+
+- `declare(strict_types=1)`
+- typed properties and return types
+- constructor property promotion
+- `readonly` value/result objects
+- `final` classes where inheritance is not intended
+- nullable types
+- named arguments
+- Symfony Console commands
+- dependency injection
+- autowiring
+- autoconfiguration
+- PSR-4 autoloading
+- PHPUnit
+- Symfony test environment
+- Red → Green → Refactor TDD
+- integration testing through the Symfony kernel
+
+Key architecture lesson:
+
+The console command should coordinate input/output, not contain repository-analysis business logic.
